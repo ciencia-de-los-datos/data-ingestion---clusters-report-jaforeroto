@@ -26,14 +26,14 @@ def ingest_data():
     hd1.append(textnoformat.readline())
     hd1.append(textnoformat.readline())
 
-    #Se separa cada línea como una lista de ancho fijo y se reemplazan los valores de hd1
+    #Cada línea es separada como una lista de ancho fijo y se reemplazan los valores de hd1
     for ind, i in enumerate(hd1):
         hd1[ind] = ([i[:9], i[9:25].replace("\n",''), i[25:41].replace("\n",''), i[41:].replace("\n",'')])
 
-    #Se juntan las filas 0 y 1 para formar encabezado compuesto
+    #Son juntados las filas 0 y 1 para formar encabezado compuesto
     hd1[0] = list(zip(hd1[0], hd1[1]))
 
-    #Se elimina la fila 1 que ya se junto con la 0
+    #Se procede a eliminar la fila 1 que se junto con la fila 0
     hd1.pop(1)
 
     #Se juntan las tuplas de cada columna como cadena de texto para titulo de columna. Se limpian espacios en blanco múltiples con split() y join reemplazandolos por '_'. Se hace lowercase
@@ -54,7 +54,7 @@ def ingest_data():
     #Separa el texto en elementos de lista, partiendo por el caracter '.'
     cra = cra.split('.')
 
-    #Se elimina la última fila que es sobrante
+    #Se elimina la última debido a que no es necesaria
     cra.pop()
 
     #Se crean variables para solventar problema de filas 6 y 7 que no se separan por no tener punto al final del 6
